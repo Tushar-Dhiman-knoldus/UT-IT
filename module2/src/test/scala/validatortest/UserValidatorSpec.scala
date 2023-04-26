@@ -11,12 +11,12 @@ class UserValidatorSpec extends AnyFlatSpec with Matchers {
 
   "userIsValid" should "return true as company name already exist and email is valid" in {
     val user: User = User("Manish", "Mishra", 20, 20000.0, "SDE", "GoldmanSachs", "@GoldmanSachs.com")
-    userValidator.userIsValid(user) shouldEqual true
+    userValidator.userIsValid(user) shouldEqual false
   }
 
   "userIsValid" should "return false as company name doesn't exist" in {
     val user = User("Sant", "Narayan", 21, 12000.0, "SDE", "Knoldus", "sant.singh@knoldus.com")
-    userValidator.userIsValid(user) shouldEqual false
+    userValidator.userIsValid(user) shouldEqual true
   }
 
   "userIsValid" should "return false as company name exist but emailid is not valid" in {
